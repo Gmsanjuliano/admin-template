@@ -1,6 +1,7 @@
 import useAppData from "../../data/hook/useAppData";
 import ChangeThemeBtn from "./changeThemeBtn";
 import Title from "./title";
+import UserAvatar from "./userAvatar";
 
 interface HeaderProps {
   title: string;
@@ -10,11 +11,11 @@ interface HeaderProps {
 export default function Header(props: HeaderProps) {
   const { theme, changeTheme } = useAppData();
   return (
-    <div>
+    <div className="flex justify-end items-center">
       <Title title={props.title} subTitle={props.subTitle} />
       <div className={`flex flex-grow justify-end items-center`}>
         <ChangeThemeBtn theme={theme} changeTheme={changeTheme} />
-        {/* <UserAvatar className="ml-3" /> */}
+        <UserAvatar classname="ml-3" />
       </div>
     </div>
   );
