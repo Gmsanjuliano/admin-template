@@ -10,9 +10,9 @@ export default function UserAvatar(props: UserAvatarProps) {
   return (
     <Link href="/profile">
       <img
-        src={user?.imageUrl ?? "/images/abs.svg"}
+        src={user?.imageUrl ?? "/images/ga.png"}
         alt="Avatar do Usuário"
-        className={`h-10 w-10 rounded-full cursor-pointer ml-3 ${props.className}`}
+        className={`h-12 w-12 bg-gray-300 rounded-full cursor-pointer ml-3 ${props.className}`}
       />
     </Link>
   );

@@ -6,6 +6,7 @@ import Cookies from "js-cookie";
 
 interface AuthContextProps {
   user?: User;
+  loading?: boolean;
   googleLogin?: () => Promise<void>;
   logout?: () => Promise<void>;
 }
@@ -81,6 +82,8 @@ export function AuthProvider(props: any) {
     if (Cookies.get("admin-template-auth")) {
       const cancel = firebase.auth().onIdTokenChanged(sessionConfig);
       return () => cancel();
+    } else {
+      setLoading(false);
     }
   }, []);
 
@@ -90,6 +93,7 @@ export function AuthProvider(props: any) {
         user,
         googleLogin,
         logout,
+        loading,
       }}
     >
       {props.children}

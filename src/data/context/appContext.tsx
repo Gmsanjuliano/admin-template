@@ -1,16 +1,14 @@
 import { createContext, useEffect, useState } from "react";
 
-type Theme = "dark" | "";
-
 interface AppContextProps {
-  theme?: Theme;
+  theme?: string;
   changeTheme?: () => void;
 }
 
 const AppContext = createContext<AppContextProps>({});
 
-export function AppProvider(props: any) {
-  const [theme, setTheme] = useState<Theme>("");
+export function AppProvider(props) {
+  const [theme, setTheme] = useState("");
 
   function changeTheme() {
     const newTheme = theme === "" ? "dark" : "";
@@ -18,10 +16,10 @@ export function AppProvider(props: any) {
     localStorage.setItem("theme", newTheme);
   }
 
-  // useEffect(() => {
-  //   const saveTheme = localStorage.getItem("theme");
-  //   setTheme(saveTheme);
-  // }, []);
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    setTheme(savedTheme);
+  }, []);
 
   return (
     <AppContext.Provider
