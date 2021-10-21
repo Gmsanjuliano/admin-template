@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Head from "next/head";
 import router from "next/router";
-import loading from "../../../public/images/loading.gif";
 import useAuth from "../../data/hook/useAuth";
 
 export default function ForceAuth(props) {
@@ -27,7 +26,7 @@ export default function ForceAuth(props) {
   function renderLoading() {
     return (
       <div className="flex justify-center items-center">
-        <Image src={loading} />
+        <Image src="/public/images/loadingImg.gif" width={500} height={500} />
       </div>
     );
   }
